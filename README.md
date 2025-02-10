@@ -1,64 +1,59 @@
-# Eco Crafting Tool
+# EcoCraftingTool
 
-Crafting calculator for Eco Global Survival by Strange Loop Games located at https://eco-calc.com. Computes production
-costs for in-game items based on labor, materials, and crafting table upgrades.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
 
-**Are you here to see if the app has been updated for the last Eco game version? You may be able to help if you are a developer. See [Editing Recipes and Items](#editing-recipes-and-items) and use this project to generate the new entries: [EcoDataReader](https://github.com/aritchie05/EcoDataReader).**
+## Development server
 
-## Workspace Setup
+To start a local development server, run:
 
-To run this project locally, you will want to use an IDE with support for [npm](https://www.npmjs.com/) projects. The recommended Node.js version to work with Angular 17.0.0 is [v20.9.0](https://nodejs.org/download/release/v20.9.0/).
+```bash
+ng serve
+```
 
-Once you have the project cloned in your IDE, run `npm install` to download all the dependencies. Then, run `npm start` to start a local server at http://localhost:4200.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Dev Workflow
+## Code scaffolding
 
-To edit the repository, create a feature branch like `recipe-updates-9.6` and push the changes to that feature branch. Then, open a pull request into the `develop` branch. Verify and test the changes using the develop domain at https://eco-crafting-tool.vercel.app. Once the changes are confirmed, create a GitHub release and merge `develop` into `master`. This will deploy the changes to https://eco-calc.com.
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-## Editing Recipes and Items
+```bash
+ng generate component component-name
+```
 
-Recipes and items are stored at `src/assets/data` in various TypeScript files. When viewing these files in an IDE, it is recommended to disable inspections and highlighting for performance reasons, particularly `recipes.ts` and `items.ts`. For example, this can be done in IntelliJ IDEA by clicking the top right corner of the editor pane and selecting Highlight: None.
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-### White Tiger Recipes
+```bash
+ng generate --help
+```
 
-Recipes for White Tiger are stored at `src/assets/data/white-tiger/white-tiger-recipes.ts`. These recipes will be added to the master recipe list if the checkbox is enabled in the settings menu. If the `nameID` on the WT recipe matches an existing recipe in `recipes.ts`, it will replace the existing recipe. Otherwise, it will be added as a separate recipe. 
-At this point, White Tiger custom items, crafting tables, and skills need to be added to the main data files. 
-When editing or adding WT recipes, make sure the `nameIDs` match the corresponding base file - `skills.ts` for `skillNameID`, `items.ts` for `itemNameID`, etc. They should also match the name IDs from the game files.
+## Building
 
-## Translations
+To build the project run:
 
-Translations are provided by [Crowdin](https://crowdin.com/project/eco-by-strange-loop-games) from `defaultstrings.csv` and stored at `src/assets/data/locale-data.ts`.
+```bash
+ng build
+```
 
-## Deploying to a Server
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-To deploy to a web server, run the Angular build command `ng build --prod`. This will build the source files to the `dist` folder in a folder called `EcoCraftingTool`. These files should then be deployed to a web server, like nginx or Apache.
+## Running unit tests
 
-## Angular Details
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-This project was built with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+```bash
+ng test
+```
 
-### Development server
+## Running end-to-end tests
 
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will not automatically reload if you change
-any of the source files due to node memory issues. The equivalent command is `ng serve --watch=false`.
+For end-to-end (e2e) testing, run:
 
-### Code scaffolding
+```bash
+ng e2e
+```
 
-Run `ng generate component component-name` to generate a new component. You can also
-use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-### Build
+## Additional Resources
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-### Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-### Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-### Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

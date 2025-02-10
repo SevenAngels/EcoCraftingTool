@@ -1,3 +1,0 @@
-{
-  "buildCommand": "npm run prebuild && ng build --configuration=$ENVIRONMENT"
-}
