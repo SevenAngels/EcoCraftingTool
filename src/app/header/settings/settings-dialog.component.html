@@ -1,0 +1,17 @@
+<h2 mat-dialog-title class="flex items-center mt-3">
+  Settings
+  <span class="ml-auto material-icons cursor-pointer hover:opacity-80" (click)="close()">close</span>
+</h2>
+<mat-dialog-content class="flex flex-col">
+  <mat-form-field appearance="outline" class="mt-2">
+    <mat-label>Craft Resource Modifier</mat-label>
+    <input #craftResourceInput matInput type="number" step=".1" min=".1" [value]="craftResourceModifier()"
+           (focusout)="changeCraftResourceModifier(craftResourceInput.value)">
+  </mat-form-field>
+  <mat-slide-toggle
+    class="mt-2"
+    [checked]="expensiveEndgameRecipes()"
+    (change)="toggleExpensiveEndgameRecipes()">
+    Expensive Endgame Recipes
+  </mat-slide-toggle>
+</mat-dialog-content>

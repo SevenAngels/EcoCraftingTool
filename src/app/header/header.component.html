@@ -1,0 +1,33 @@
+<header class="flex flex-wrap items-center p-4 border-b border-light-blue">
+  <div class="flex flex-wrap items-center mr-4 my-2">
+    <img [ngSrc]="ecoLogoUrl"
+         width="91" height="30" alt="Eco logo" priority>
+    <h1 class="mx-3 text-xl">Crafting Calculator</h1>
+    @if (releases().length > 0) {
+      <a class="pt-0.5 cursor-pointer hover:opacity-80"
+         (click)="openReleaseNotes()">{{ releases()[0].tag_name.substring(1) }}</a>
+    }
+  </div>
+  <div class="mr-auto my-2">
+    <button mat-stroked-button class="mx-2" (click)="openImportDialog()">Import</button>
+    <button mat-stroked-button class="mx-2" (click)="openExportDialog()">Export</button>
+  </div>
+  <div class="my-2 flex flex-wrap items-center">
+    <a class="material-icons mx-2 cursor-pointer hover:opacity-80" (click)="openSettingsDialog()">settings</a>
+    <mat-form-field appearance="outline" class="mx-2">
+      <mat-select [value]="selectedLocale().code" (selectionChange)="onLocaleChange($event.value)"
+                  aria-label="Select locale">
+        @for (locale of supportedLocales; track locale.code) {
+          <mat-option [value]="locale.code" class="f16">
+            <span [class]="'flag ' + locale.regionCode" class="translate-y-0.5"></span>
+            {{ locale.name }}
+          </mat-option>
+        }
+      </mat-select>
+      <div matPrefix class="f16">
+        <span [class]="'flag ' + selectedLocale().regionCode"></span>
+      </div>
+    </mat-form-field>
+    <span class="mx-2">Eco Version 11.1.8</span>
+  </div>
+</header>

@@ -1,1 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'flags16.css';
+
+html {
+  color-scheme: dark;
+
+  @include mat.theme((
+    color: mat.$cyan-palette,
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --mat-dialog-container-max-width: 50vw;
+  --mdc-outlined-button-container-shape: 0.5rem;
+  --mat-form-field-container-vertical-padding: 0.5rem;
+  --mat-form-field-container-height: 1rem;
+}
+
+.mat-mdc-menu-panel {
+  max-width: 25rem !important;
+}
+
+.mdc-notched-outline__notch {
+  border-right: none !important;
+}
+
+.mat-internal-form-field > label {
+  margin-left: .25rem !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  display: none !important;
+}
+
+mat-dialog-content {
+  --mat-form-field-container-vertical-padding: 1rem;
+
+  .mat-mdc-form-field-subscript-wrapper {
+    display: block !important;
+  }
+}
+
+.mat-mdc-form-field-infix {
+  width: 100% !important;
+}
+
+.mat-mdc-select-value {
+  padding-right: .5rem;
+}
+
+.mat-mdc-form-field-icon-prefix {
+  padding-left: 1rem !important;
+}
+
+div.mat-mdc-select-panel {
+  max-height: 70vh !important;
+}
+
+#cdk-overlay-0 {
+  width: 11.75rem !important;
+}
+
+textarea {
+  padding: 0.5rem;
+  background-color: var(--mat-sys-surface-container-lowest);
+  border: 1px solid var(--mat-sys-outline);
+  border-radius: var(--mdc-outlined-button-container-shape);
+  resize: none;
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem #60606040;
+  }
+}
+

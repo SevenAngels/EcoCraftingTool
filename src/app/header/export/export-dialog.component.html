@@ -1,0 +1,12 @@
+<h2 mat-dialog-title class="flex items-center mt-3">
+  Export Config
+  <span class="ml-auto material-icons cursor-pointer hover:opacity-80" (click)="close()">close</span>
+</h2>
+<mat-dialog-content>
+  <label class="sr-only" for="exportTextBox">Import Text Box</label>
+  <textarea #exportBox id="exportTextBox" class="w-full h-[50vh] mt-2 form-control" readonly
+            [value]="exportJson()" (click)="selectAllText(exportBox)"></textarea>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-stroked-button [cdkCopyToClipboard]="exportBox.value" (click)="onCopy()">Copy To Clipboard</button>
+</mat-dialog-actions>
