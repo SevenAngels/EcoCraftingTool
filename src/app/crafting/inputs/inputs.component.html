@@ -1,0 +1,66 @@
+<div class="flex flex-col items-center">
+  <h1 class="text-4xl my-1">Inputs</h1>
+  <div class="flex flex-col w-full basic-inputs-container text-sm">
+    <div class="flex flex-row flex-wrap items-center w-full m-2">
+      <img [src]="imageService.imageTemplateUrl" width="32" height="32" class="mx-2" alt="Calorie cost image"
+           [style]="imageService.getCalorieImgStyle()">
+      <span class="font-semibold">Price Per 1000 Calories</span>
+      <div class="ml-auto flex items-center">
+        <mat-form-field appearance="outline" class="w-24 mr-8">
+          <input #caloriesInput matInput type="number" step="0.1" [value]="pricePerThousandCals()"
+                 (input)="onCalorieCostChange(caloriesInput.value)">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="flex flex-row flex-wrap items-center w-full m-2">
+      <img [src]="imageService.imageTemplateUrl" width="32" height="32" class="mx-2" alt="Profit percentage image"
+           [style]="imageService.getProfitImgStyle()">
+      <span class="font-semibold">Default Profit Percentage</span>
+      <button class="material-icons ml-2 text-2xl cursor-help hover:opacity-80"
+              matTooltip="Default profit percentage applied to each recipe. Can be overriden for each individual recipe.
+              Percentages do not stack for recipe production chains, they are only applied at the final step.">
+        help_outline
+      </button>
+      <div class="ml-auto flex items-center">
+        <mat-form-field appearance="outline" class="w-24 mr-8">
+          <input #profitInput matInput type="number" step="1" [value]="defaultProfitPercent()"
+                 (input)="onProfitPercentChange(profitInput.value)">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <hr class="w-11/12 text-gray opacity-70 my-6 border-t-2 rounded">
+  <div class="flex flex-col w-full selected-items-container text-sm">
+    @for (item of selectedItems(); track item.nameID) {
+      <div class="flex flex-row flex-wrap items-center w-full m-2">
+        <img [src]="imageService.imageTemplateUrl" [style]="imageService.getItemImgStyle(item)"
+             width="32" height="32" [alt]="item.name() + ' Icon'" class="mx-2">
+        <span>{{ item.name() }}</span>
+        <div class="ml-auto flex items-center">
+          <mat-form-field appearance="outline" class="w-24 mr-8">
+            <input #priceInput matInput type="number" step="0.1" min="0" [value]="item.price()"
+                   (input)="onPriceChange($index, priceInput.value)">
+          </mat-form-field>
+        </div>
+      </div>
+    }
+  </div>
+  @if (selectedByproducts().length > 0) {
+    <hr class="w-11/12 text-gray opacity-70 my-6 border-t-2 rounded">
+    <h2 class="text-2xl flex items-center">Byproducts
+      <button class="material-icons ml-1 cursor-help hover:opacity-80"
+              matTooltip="Outputs of selected recipes that are not direct inputs or primary outputs of other selected recipes.
+              The value should be set to sale price of the item.
+              It will be used to compute a more accurate output cost for the corresponding recipes.
+              You can use negative values for byproducts you want to charge for, like Tailings."
+              aria-label="Icon that displays a tooltip when focused or hovered over"
+              matTooltipClass="text-justify">help_outline
+      </button>
+    </h2>
+    @for (byproduct of selectedByproducts(); track byproduct.nameID) {
+      <div>
+        {{ byproduct.name() }}
+      </div>
+    }
+  }
+</div>

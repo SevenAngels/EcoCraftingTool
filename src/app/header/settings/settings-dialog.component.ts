@@ -2,8 +2,8 @@ import {ChangeDetectionStrategy, Component, inject, Signal} from '@angular/core'
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {SettingsService} from '../../service/settings.service';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {CraftingService} from '../../service/crafting.service';
 
 @Component({
   selector: 'app-settings',
@@ -23,9 +23,9 @@ export class SettingsDialogComponent {
   expensiveEndgameRecipes: Signal<boolean>;
 
 
-  constructor(private settingsService: SettingsService) {
-    this.craftResourceModifier = settingsService.craftResourceModifier;
-    this.expensiveEndgameRecipes = settingsService.expensiveEndgameRecipes;
+  constructor(private craftingService: CraftingService) {
+    this.craftResourceModifier = craftingService.craftResourceModifier;
+    this.expensiveEndgameRecipes = craftingService.expensiveEndgameRecipes;
   }
 
   close() {
@@ -35,13 +35,13 @@ export class SettingsDialogComponent {
   changeCraftResourceModifier(value: string) {
     try {
       const newValue = Number.parseFloat(value);
-      this.settingsService.setCraftResourceModifier(newValue);
+      this.craftingService.setCraftResourceModifier(newValue);
     } catch {
       window.alert('Incorrect value for modifier. Please use a number.');
     }
   }
 
   toggleExpensiveEndgameRecipes() {
-    this.settingsService.toggleExpensiveEndgameRecipes();
+    this.craftingService.toggleExpensiveEndgameRecipes();
   }
 }

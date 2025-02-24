@@ -7,7 +7,7 @@ export class StoredSkill {
 
   constructor(skill: Skill) {
     this.id = skill.nameID;
-    this.lvl = skill.level ? skill.level : 1;
-    this.lav = skill.lavishChecked ? skill.lavishChecked : false;
+    this.lvl = skill.level();
+    this.lav = skill.lavishChecked();
   }
 }

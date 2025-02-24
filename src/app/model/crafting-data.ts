@@ -1,18 +1,18 @@
-import {CraftingTable} from './crafting-table';
+import {ICraftingTable} from './crafting-table';
 import {Item} from './item';
 import {Recipe} from './recipe';
-import {Skill} from './skill';
+import {ISkill} from './skill';
 import {Ingredient} from './ingredient';
 import {Output} from './output';
-import {UpgradeModule} from './upgrade-module';
+import {IUpgradeModule} from './upgrade-module';
 import {LaborCost} from './labor-cost';
 
 export interface CraftingData {
-  craftingTables: CraftingTable[];
-  upgradeModules: UpgradeModule[];
+  craftingTables: ICraftingTable[];
+  upgradeModules: IUpgradeModule[];
   items: Item[];
   recipes: Recipe[];
-  skills: Skill[];
+  skills: ISkill[];
   ingredients: Ingredient[];
   outputs: Output[];
   laborCosts: LaborCost[];

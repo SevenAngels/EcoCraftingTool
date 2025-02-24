@@ -11,7 +11,7 @@ import {CalculatorConfig} from '../model/storage-model/calculator-config';
 import {WebStorageService} from '../service/storage.service';
 import {ImportDialogComponent} from './import/import-dialog.component';
 import {ExportDialogComponent} from './export/export-dialog.component';
-import {MatSelect, MatSelectModule} from '@angular/material/select';
+import {MatSelectModule} from '@angular/material/select';
 import {Locale, LocaleService} from '../service/locale.service';
 import {SettingsDialogComponent} from './settings/settings-dialog.component';
 

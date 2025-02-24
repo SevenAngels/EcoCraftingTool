@@ -1,0 +1,9 @@
+<div class="flex flex-col items-center">
+  <h1 class="text-4xl my-1">Outputs</h1>
+
+  @for (recipe of selectedRecipes(); track recipe.nameID) {
+    <div>
+      {{ recipe.name() }}
+    </div>
+  }
+</div>

@@ -1,4 +1,4 @@
-import {Injectable, Signal, signal, WritableSignal} from '@angular/core';
+import {Injectable, signal, WritableSignal} from '@angular/core';
 
 export class Locale {
   name: string;
@@ -22,9 +22,7 @@ export class LocaleService {
   readonly supportedLocales: Map<string, Locale>;
   readonly defaultLocale: Locale;
 
-  private _selectedLocale: WritableSignal<Locale>;
-  readonly selectedLocale: Signal<Locale>;
-
+  selectedLocale: WritableSignal<Locale>;
 
   constructor() {
     this.defaultLocale = new Locale('English', 'en-US');
@@ -55,8 +53,7 @@ export class LocaleService {
       selectedLocale = this.supportedLocales.get(userLang);
     }
 
-    this._selectedLocale = signal(selectedLocale !== undefined ? selectedLocale : this.defaultLocale);
-    this.selectedLocale = this._selectedLocale.asReadonly();
+    this.selectedLocale = signal(selectedLocale !== undefined ? selectedLocale : this.defaultLocale);
   }
 
   getUsersLocale(defaultValue: string): string {
@@ -72,7 +69,7 @@ export class LocaleService {
   changeLocale(localeCode: string) {
     const newLocale = this.supportedLocales.get(localeCode.substring(0, 2));
     if (newLocale !== undefined) {
-      this._selectedLocale.set(newLocale);
+      this.selectedLocale.set(newLocale);
     }
   }
 }

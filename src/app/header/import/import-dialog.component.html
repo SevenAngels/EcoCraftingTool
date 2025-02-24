@@ -1,11 +1,13 @@
-<h2 mat-dialog-title class="flex items-center mt-3">
-  Import Config
-  <span class="ml-auto material-icons cursor-pointer hover:opacity-80" (click)="close()">close</span>
-</h2>
-<mat-dialog-content>
-  <label class="sr-only" for="importTextBox">Import Text Box</label>
-  <textarea #importBox id="importTextBox" class="mt-2 w-full h-[50vh]"></textarea>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-stroked-button (click)="onImportConfig(importBox.value)">Import To Calculator</button>
-</mat-dialog-actions>
+<div class="w-[70vw]">
+  <h2 mat-dialog-title class="flex items-center mt-3">
+    Import Config
+    <span class="ml-auto material-icons cursor-pointer hover:opacity-80" (click)="close()">close</span>
+  </h2>
+  <mat-dialog-content>
+    <label class="sr-only" for="importTextBox">Import Text Box</label>
+    <textarea #importBox id="importTextBox" class="mt-2 w-full h-[50vh]"></textarea>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-stroked-button (click)="onImportConfig(importBox.value)">Import To Calculator</button>
+  </mat-dialog-actions>
+</div>

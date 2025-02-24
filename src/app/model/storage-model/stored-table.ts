@@ -10,6 +10,6 @@ export class StoredTable {
 
   constructor(table: CraftingTable) {
     this.id = table.nameID;
-    this.up = table.selectedUpgrade ? table.selectedUpgrade.nameID : '';
+    this.up = table.selectedUpgrade().nameID;
   }
 }

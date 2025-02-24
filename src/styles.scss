@@ -28,11 +28,25 @@ body {
 }
 
 :root {
-  --mat-dialog-container-max-width: 50vw;
   --mdc-outlined-button-container-shape: 0.5rem;
   --mat-form-field-container-vertical-padding: 0.5rem;
   --mat-form-field-container-height: 1rem;
+  --mat-dialog-container-min-width: 20vw;
+  --mat-dialog-container-max-width: 70vw;
 }
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none; /* Default conformance */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Prevent shifting of elements */
+}
+
 
 .mat-mdc-menu-panel {
   max-width: 25rem !important;
@@ -46,8 +60,8 @@ body {
   margin-left: .25rem !important;
 }
 
-.mat-mdc-form-field-subscript-wrapper {
-  display: none !important;
+.mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+  height: 0;
 }
 
 mat-dialog-content {
@@ -74,8 +88,22 @@ div.mat-mdc-select-panel {
   max-height: 70vh !important;
 }
 
-#cdk-overlay-0 {
-  width: 11.75rem !important;
+.mdc-list-item__primary-text {
+  display: inline-flex;
+  align-items: center;
+}
+
+/*.mdc-tooltip--multiline .mat-mdc-tooltip-surface {
+  text-align: justify !important;
+  max-width: 20rem !important;
+}*/
+
+.locale-select {
+  min-width: 11rem !important;
+}
+
+.upgrade-select {
+  min-width: 12rem !important;
 }
 
 textarea {
@@ -91,3 +119,8 @@ textarea {
   }
 }
 
+app-crafting {
+  mat-form-field {
+    background-color: var(--mat-sys-surface-container-lowest);
+  }
+}

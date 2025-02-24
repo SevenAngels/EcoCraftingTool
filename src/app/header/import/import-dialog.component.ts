@@ -25,6 +25,7 @@ export class ImportDialogComponent {
     try {
       const calcConfig: CalculatorConfig = JSON.parse(value);
       this.storageService.saveCalcConfig(calcConfig);
+      location.reload();
     } catch {
       window.alert('Incorrect format for import. Please use valid JSON exported from another configuration of eco calc.');
     }
